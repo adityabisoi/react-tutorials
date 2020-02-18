@@ -1,9 +1,13 @@
 import React from 'react'
 
 function Header(){
+    const styles={
+        color:"red",
+        backgroundColor:"yellow"
+    }
     return(
         <nav>
-            <h1>Navbar</h1>
+            <h1 style={styles}>Navbar</h1>
         </nav>
     )
 }
