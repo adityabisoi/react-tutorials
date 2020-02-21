@@ -1,16 +1,16 @@
 import React from "react"
-import Joke from './components/Joke'
-import jokesData from './jokesData'
-function App() {
-    const jokeComponents = jokesData.map(joke => 
-            <Joke question = {joke.question} punchLine = {joke.punchLine}/>
-    )
-    return (
-        <div>
+import VschoolProducts from './components/VschoolProducts'
+import products from './vschoolProducts'
 
-           {jokeComponents}
+function App() {
+    const product = products.map(item => 
+        <VschoolProducts name={item.name} price={item.price} description={item.description} />
+        )
+    return(
+        <div>
+            {product}
         </div>
-    )
+    );
 }
 
 export default App
