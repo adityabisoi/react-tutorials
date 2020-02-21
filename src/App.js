@@ -1,16 +1,21 @@
 import React from "react"
-import VschoolProducts from './components/VschoolProducts'
-import products from './vschoolProducts'
 
-function App() {
-    const product = products.map(item => 
-        <VschoolProducts name={item.name} price={item.price} description={item.description} />
-        )
-    return(
-        <div>
-            {product}
-        </div>
-    );
+// function App() {
+//     return(
+//         <div>
+//             <h1>Hello World</h1>
+//         </div>
+//     );
+// }
+
+class App extends React.Component{
+    render(){
+        return(
+            <div>
+                <h1>Hello World</h1>
+            </div>
+        );
+    }
 }
 
 export default App
