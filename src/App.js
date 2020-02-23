@@ -1,19 +1,17 @@
 import React from "react"
 
-class App extends React.Component{
-    constructor(){
-        super()
-        this.state = {
-            statement: "Aditya"
-        }
-    }
-    render(){
-        return(
-            <div>
-                <h1>Hello World {this.state.statement}</h1>
-            </div>
-        );
-    }
+function myFunction() {
+    console.log("clicked")
+}
+
+
+function App(){
+    return(
+        <div>
+            <h1>Hello World</h1>
+            <button onClick={myFunction}>Click</button>
+        </div>
+    );
 }
 
 export default App
