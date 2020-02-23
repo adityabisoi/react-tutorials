@@ -1,17 +1,24 @@
 import React from "react"
 
-function myFunction() {
-    console.log("clicked")
-}
-
-
-function App(){
-    return(
-        <div>
-            <h1>Hello World</h1>
-            <button onClick={myFunction}>Click</button>
-        </div>
-    );
+class App extends React.Component{
+    constructor(){
+        super()
+        this.state = {
+            count : 0
+        }
+        this.handleClick = this.handleClick.bind(this)
+    }
+    handleClick(){
+        this.setState(prevstate => {return { count: prevstate.count+1 }})
+    }
+    render(){
+        return(
+            <div>
+                <h1>{this.state.count}</h1>
+                <button onClick = {this.handleClick}>Click</button>
+            </div>
+        );
+    }
 }
 
 export default App
