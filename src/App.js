@@ -4,22 +4,28 @@ class App extends React.Component{
     constructor(){
     super()
     this.state = {
-        isLoggedin : true
+        character: {},
+        isLoading: false
     }
-    this.onClickFunction = this.onClickFunction.bind(this)
     }
-    onClickFunction(){
-        this.setState(prevState =>{
-            return{
-                isLoggedin: !prevState.isLoggedin
-            }
-        })
+
+    componentDidMount(){
+        this.setState({isLoading:true})
+        fetch("https://swapi.co/api/people/1")
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    isLoading: false,
+                    character: data
+                })
+            })
     }
+
     render(){
+        const text = this.state.isLoading ? "Loading..." : this.state.character.name
         return(
             <div>
-                {this.state.isLoggedin ? <p>Logged In</p> : <p>Loggd Out</p>}
-                <button onClick={this.onClickFunction}>Click</button>
+                {text}
             </div>
         );
     }
