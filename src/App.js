@@ -1,21 +1,24 @@
 import React from "react"
+import Conditional from './components/Conditional'
 
 class App extends React.Component{
     constructor(){
-        super()
-        this.state = {
-            count : 0
-        }
-        this.handleClick = this.handleClick.bind(this)
+    super()
+    this.state = {
+        isLoading : true
     }
-    handleClick(){
-        this.setState(prevstate => {return { count: prevstate.count+1 }})
+    }
+    componentDidMount(){
+        setTimeout(()=>{
+            this.setState({
+                isLoading:false
+            })
+        },1500)
     }
     render(){
         return(
             <div>
-                <h1>{this.state.count}</h1>
-                <button onClick = {this.handleClick}>Click</button>
+                <Conditional isLoading={this.state.isLoading}/>
             </div>
         );
     }
