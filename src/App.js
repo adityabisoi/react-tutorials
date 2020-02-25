@@ -1,24 +1,25 @@
 import React from "react"
-import Conditional from './components/Conditional'
 
 class App extends React.Component{
     constructor(){
     super()
     this.state = {
-        isLoading : true
+        isLoggedin : true
     }
+    this.onClickFunction = this.onClickFunction.bind(this)
     }
-    componentDidMount(){
-        setTimeout(()=>{
-            this.setState({
-                isLoading:false
-            })
-        },1500)
+    onClickFunction(){
+        this.setState(prevState =>{
+            return{
+                isLoggedin: !prevState.isLoggedin
+            }
+        })
     }
     render(){
         return(
             <div>
-                {this.state.isLoading ? <h1>Loading...</h1> : <Conditional/>}
+                {this.state.isLoggedin ? <p>Logged In</p> : <p>Loggd Out</p>}
+                <button onClick={this.onClickFunction}>Click</button>
             </div>
         );
     }
